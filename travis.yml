@@ -1,15 +1,20 @@
-# This is a sample build configuration for Docker.
-# Check our guides at https://confluence.atlassian.com/x/O1toN for more examples.
-# Only use spaces to indent your .yml configuration.
-# -----
-# You can specify  a custom docker image from Docker Hub as your build environment.
-# Modify the commands below to build your repository.
+[‎6/‎18/‎2018 3:45 PM] Satarkar, Neeti Khandekar (Cognizant): 
+sudo: true
+os: trusty
+cache: false
 
+notifications: # set notification options
+ email:
+  recipients:
+    - Atul.Tiwari@cognizant.com
+ 
+  on_success: always
+  on_failure: always
+ slack:
+  on_success: always
+  on_failure: always
 
+script:
+- echo "Running Default Script against CI environment"
 
-pipelines:
-  default:
-    - step:
-        script:
-          - ant deployCode
-        
+- ant -buildfile build.xml deployCode
