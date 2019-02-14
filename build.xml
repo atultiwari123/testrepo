@@ -18,21 +18,9 @@
     </taskdef>
 	
     <!-- Test out deploy and retrieve verbs for package 'mypkg' -->
-<target name="proxy">
 
-        <property name="proxy.host" value="proxy.cognizant.com" />
 
-        <property name="proxy.port" value="6050" />
-
-        <property name="proxy.user" value="sf.pusername" />
-
-        <property name="proxy.pwd" value="{sf.ppassword" />
-
-        <setproxy proxyhost="${proxy.host}" proxyport="${proxy.port}" proxyuser="${proxy.user}" proxypassword="${proxy.pwd}" />
-
-    </target>
-
-    <target name="test">
+   <target name="test">
       <!-- Upload the contents of the "mypkg" package -->
       <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="mypkg" rollbackOnError="true"/>
       <mkdir dir="retrieveOutput"/>
